@@ -1,16 +1,14 @@
 <div class="container-fluid">
-    <h1 class="h3 mb-4 text-gray-800">Data Anggota</h1>
+
+<h1 class="h3 mb-4 text-gray-800">Data Anggota</h1>
 
 <a href="<?php echo base_url('anggota/tambah'); ?>" 
 class="btn btn-primary mb-3">
 Tambah Anggota
 </a>
 
-<table class="table table-bordered"></table>
+<table class="table table-bordered" id="dataTable">
 
-<h1 class="h3 mb-4 text-gray-800">Data Anggota</h1>
-
-<table class="table table-bordered">
 <thead>
 <tr>
 <th>No</th>
@@ -30,6 +28,7 @@ Tambah Anggota
 $no = 1;
 foreach($anggota as $a){
 ?>
+
 <tr>
 <td><?= $no++ ?></td>
 <td><?= $a->no_anggota ?></td>
@@ -47,6 +46,7 @@ class="btn btn-warning btn-sm">Edit</a>
 class="btn btn-danger btn-sm"
 onclick="return confirm('Yakin hapus data?')">Hapus</a>
 </td>
+
 </tr>
 
 <?php } ?>
@@ -55,3 +55,9 @@ onclick="return confirm('Yakin hapus data?')">Hapus</a>
 </table>
 
 </div>
+
+<script>
+$(document).ready(function() {
+    $('#dataTable').DataTable();
+});
+</script>
